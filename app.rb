@@ -9,7 +9,13 @@ get '/secret' do
 	'This is a secret page'
 end
 
-get '/cat' do
-	@random_names = ["Amy", "Grig", "Maria"].sample
+get '/random-cat' do
+	@names = ["Amy", "Grig", "Maria"].sample
+	erb(:index)
+end
+
+get '/named-cat' do
+	p params
+	@names = params[:name]
 	erb(:index)
 end
